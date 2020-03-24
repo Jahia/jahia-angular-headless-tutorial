@@ -1,0 +1,10 @@
+<div
+  fxLayout="row wrap"
+  fxLayout.lt-md="column">
+    <div
+      fxFlex="25"
+      fxFlex.lt-md="100"
+      *ngFor="let tutorial of tutorials">
+        <app-tutorial-item [tutorial]=tutorial></app-tutorial-item>
+    </div>
+</div>
