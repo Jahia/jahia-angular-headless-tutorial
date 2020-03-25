@@ -1,0 +1,9 @@
+<mat-card class="paper">
+  <div class="media" style="background-image: url({{tutorial.image}})"></div>
+  <div class="tutorial-content">
+    <h2 class="mat-h2 title">{{tutorial.title}}</h2>
+    <p variant="mat-body2">by: {{tutorial.publishedBy}}</p>
+    <p variant="mat-body2" >on: {{getFormattedDate()}}</p>
+    <div [innerHTML]=tutorial.body></div>
+  </div>
+</mat-card>
