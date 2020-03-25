@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  jahiaHost: "http://localhost:8787"
+  jahiaHost: "http://localhost:8080"
 };
 
 /*
