@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { items } from '../../data/items';
+import { JahiaContentService } from '../jahia-content.service';
 
 @Component({
   selector: 'app-tutorial-detail-page',
@@ -11,13 +11,14 @@ export class TutorialDetailPageComponent implements OnInit {
   tutorial;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private contentService: JahiaContentService
   ) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const tutorialId = params.get('tutorialId');
-      this.tutorial = items.find((tutorial => tutorial.id === tutorialId));
+      this.tutorial = this.contentService.getTutorial(tutorialId);
     })
   }
 

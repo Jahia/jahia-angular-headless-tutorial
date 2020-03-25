@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { items } from '../../data/items';
+import { JahiaContentService } from '../jahia-content.service';
 
 @Component({
   selector: 'app-tutorial-list',
@@ -7,11 +7,16 @@ import { items } from '../../data/items';
   styleUrls: ['./tutorial-list.component.css']
 })
 export class TutorialListComponent implements OnInit {
-  tutorials = items;
+  tutorials;
 
-  constructor() { }
+  constructor(
+    private contentService: JahiaContentService
+  ) { }
 
   ngOnInit(): void {
+    this.contentService.getTutorials().then(tutorials => {
+      this.tutorials = tutorials;
+    });
   }
 
 }
