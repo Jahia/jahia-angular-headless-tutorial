@@ -18,11 +18,12 @@ export class TutorialDetailPageComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const tutorialId = params.get('tutorialId');
       this.tutorial = items.find((tutorial => tutorial.id === tutorialId));
-    })
+    });
   }
 
   getFormattedDate(): string {
-    return (this.tutorial && this.tutorial.publishedDate ? new Date(this.tutorial.publishedDate).toLocaleDateString() : '');
+    return this.tutorial && this.tutorial.publishedDate
+      ? new Date(this.tutorial.publishedDate).toLocaleDateString()
+      : '';
   }
-
 }
