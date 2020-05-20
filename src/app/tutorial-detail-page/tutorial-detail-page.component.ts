@@ -23,7 +23,8 @@ export class TutorialDetailPageComponent implements OnInit {
   }
 
   getFormattedDate(): string {
-    return (this.tutorial && this.tutorial.publishedDate ? new Date(this.tutorial.publishedDate).toLocaleDateString() : '');
+    return this.tutorial && this.tutorial.publishedDate
+      ? new Date(this.tutorial.publishedDate).toLocaleDateString()
+      : '';
   }
-
 }
